@@ -51,7 +51,7 @@ function computer(){
 
 
 function finalscore(score, cscore){
-    if((cscore > score) && (cscore >= 20)){
+    if((cscore > score) && (cscore <= 20)){
         alert(`the computers score was ${cscore} and yours was ${score}. you lose`)
     }else if(score > 20 && cscore > 20){
         alert(`the computers score was ${cscore} and yours was ${score}. you both lost`)
@@ -59,9 +59,10 @@ function finalscore(score, cscore){
         alert(`the computers score was ${cscore} and yours was ${score}. you tied`)
     }else if(score > 20){
         alert(`the computers score was ${cscore} and yours was ${score}. you went over 20 so you lost`)
-    }else if ((score > cscore) && (score >= 20)){
+    }else if ((score > cscore) && (score <= 20)){
         alert(`the computers score was ${cscore} and yours was ${score}. you win`)
-    }
+    }else if ((score <= 20) && (cscore > 20)){
+        alert(`the computers score was ${cscore} and yours was ${score}. you win`)
 }
 
 

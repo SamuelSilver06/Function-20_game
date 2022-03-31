@@ -1,7 +1,6 @@
 function game(){
     fname()
-    user()
-    computer()
+    finalscore(user(),computer())
 }
 
 function fname(){
@@ -23,7 +22,7 @@ function user(){
         score = score + ran
         alert(`you rolled ${ran} your new score is ${score}`)
         if(score > 20){
-            alert("you went over 20. you lose")
+            alert("you went over 20.")
             break
         }
         var question = prompt("do you want to roll again? (y) for yes (n) for no")
@@ -32,20 +31,38 @@ function user(){
     return score
 }
 
-function computer(){
-    var ran = randomnumber()
-    var cscore = 0;
-    cscore = cscore + ran
-    alert(`the computer rolled a ${ran}, the computers new score is ${cscore}`)
-    if (cscore > 16){
-        randomnumber()
-    }
 
-    else if(cscore > 20){
-        alert("the computer went over 20. you win!!")
-    }
+function computer(){
+
+    var cscore = 0;
+    do{
+        var ran = randomnumber()
+        cscore = cscore + ran
+        alert(`I rolled ${ran} my new score is ${cscore}`)
+        if(cscore > 20){
+            alert("I went over 20.")
+            break
+        }
+
+    }while(cscore < 16)
+
+    return cscore
 }
 
+
+function finalscore(score, cscore){
+    if((cscore > score) && (cscore >= 20)){
+        alert(`the computers score was ${cscore} and yours was ${score}. you lose`)
+    }else if(score > 20 && cscore > 20){
+        alert(`the computers score was ${cscore} and yours was ${score}. you both lost`)
+    }else if(score == cscore){
+        alert(`the computers score was ${cscore} and yours was ${score}. you tied`)
+    }else if(score > 20){
+        alert(`the computers score was ${cscore} and yours was ${score}. you went over 20 so you lost`)
+    }else if ((score > cscore) && (score >= 20)){
+        alert(`the computers score was ${cscore} and yours was ${score}. you win`)
+    }
+}
 
 
 
